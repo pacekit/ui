@@ -6,7 +6,7 @@ export const Analytics = () => {
     return (
         <VercelAnalytics
             beforeSend={(event: BeforeSendEvent) => {
-                if (event.type === "pageview") {
+                if (event.type === "pageview" && event.url === "https://www.ui.paceui.com/") {
                     return event;
                 }
                 return null;
