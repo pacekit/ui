@@ -10,6 +10,7 @@ import { Footer } from "@/components/docs/layouts/footer";
 import { getMDXComponents } from "@/components/docs/mdx/mdx-components";
 import { getMetadata, routes } from "@/lib/docs";
 import { source } from "@/lib/source";
+import { TOCAds } from "@/components/docs/TOCAds";
 
 export async function generateStaticParams() {
     return source.generateParams();
@@ -37,7 +38,7 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
             toc={page.data.toc}
             full={page.data.full}
             footer={{ component: <Footer /> }}
-            tableOfContent={{ style: "clerk", enabled: !params.slug?.includes("blocks") }}
+            tableOfContent={{ style: "clerk", enabled: !params.slug?.includes("blocks"), footer: <div className="mt-3"><TOCAds/></div> }}
             article={{
                 className: "gap-0 xl:!pe-12 2xl:!pe-16",
             }}>
