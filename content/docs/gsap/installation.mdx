@@ -1,0 +1,59 @@
+---
+title: Installation
+description: How to install dependencies and organize your app structure.
+---
+
+<Callout className="shadow-xs">
+    **Note:** Follows the same installation steps as{" "}
+    <a href="https://ui.shadcn.com" target="_blank">
+        shadcn/ui
+    </a>
+</Callout>
+
+<Steps>
+    <Step>
+        ### Create project
+    </Step>
+    Run the `init` (with default options) command to create a new Next.js project or set up an existing one:
+
+    <InstallationViewer command="npx shadcn@latest init"/>
+
+    <Step>
+        ###  Add `@pacekit` to your `components.json`
+    </Step>
+
+    <CodeViewer files={[{
+        path: "components.json",
+        code: `
+{
+    ...
+    "registries": {
+        /* [!code ++:1] */
+        "@pacekit": "https://ui.pacekit.dev/r/{name}.json"
+    }
+}`
+}]}/>
+
+    <Step>
+        ### That's it
+    </Step>
+    You’re ready to start adding components to your project
+
+    <InstallationViewer command="npx shadcn@latest add @pacekit/text-reveal"/>
+
+    The command above will add the `TextReveal` component to your project. You can then import it using the following syntax:
+
+    <CodeViewer files={[{
+        path: "index.tsx",
+        code: `
+
+import { TextReveal } from "@/components/gsap/text-reveal";
+
+export default function Home() {
+    return (
+        <TextReveal>PaceUI</TextReveal>
+    )
+}`
+    }]}/>
+
+</Steps>

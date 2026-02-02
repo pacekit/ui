@@ -1,3 +1,7 @@
 User-agent: *
-Disallow: /images/
-Disallow: /r/
+
+Disallow: /api/
+
+# === PRODUCTION (Go Live) ===
+# To allow search engines, uncomment the line below:
+Allow: /

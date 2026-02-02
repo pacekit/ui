@@ -1,45 +1,55 @@
-"use client";
-
-import * as React from "react";
-import { ChevronDown } from "lucide-react";
-import { Accordion as AccordionPrimitive } from "radix-ui";
+import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
+import { ChevronDownIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-export const Accordion = AccordionPrimitive.Root;
+function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+    return (
+        <AccordionPrimitive.Root data-slot="accordion" className={cn("flex w-full flex-col", className)} {...props} />
+    );
+}
 
-export type AccordionItemProps = React.ComponentProps<typeof AccordionPrimitive.Item>;
+function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
+    return (
+        <AccordionPrimitive.Item data-slot="accordion-item" className={cn("not-last:border-b", className)} {...props} />
+    );
+}
 
-export const AccordionItem = ({ className, ...props }: AccordionItemProps) => {
-    return <AccordionPrimitive.Item className={cn("border-b", className)} {...props} />;
-};
-
-export type AccordionTriggerProps = React.ComponentProps<typeof AccordionPrimitive.Trigger>;
-
-export const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerProps) => {
+function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.Trigger.Props) {
     return (
         <AccordionPrimitive.Header className="flex">
             <AccordionPrimitive.Trigger
+                data-slot="accordion-trigger"
                 className={cn(
-                    "flex flex-1 items-center justify-between py-4 text-left text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+                    "focus-visible:ring-ring/50 focus-visible:border-ring focus-visible:after:border-ring **:data-[slot=accordion-trigger-icon]:text-muted-foreground group/accordion-trigger relative flex flex-1 items-start justify-between rounded-md border border-transparent py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4",
                     className,
                 )}
                 {...props}>
                 {children}
-                <ChevronDown className="text-muted-foreground h-4 w-4 shrink-0 transition-transform duration-200" />
+                <ChevronDownIcon
+                    data-slot="accordion-trigger-icon"
+                    className="pointer-events-none shrink-0 transition-all duration-300 group-aria-expanded/accordion-trigger:rotate-180"
+                />
             </AccordionPrimitive.Trigger>
         </AccordionPrimitive.Header>
     );
-};
+}
 
-export type AccordionContentProps = React.ComponentProps<typeof AccordionPrimitive.Content>;
-
-export const AccordionContent = ({ className, children, ...props }: AccordionContentProps) => {
+function AccordionContent({ className, children, ...props }: AccordionPrimitive.Panel.Props) {
     return (
-        <AccordionPrimitive.Content
-            className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
+        <AccordionPrimitive.Panel
+            data-slot="accordion-content"
+            className="data-open:animate-accordion-down data-closed:animate-accordion-up overflow-hidden text-sm"
             {...props}>
-            <div className={cn("pt-0 pb-4", className)}>{children}</div>
-        </AccordionPrimitive.Content>
+            <div
+                className={cn(
+                    "[&_a]:hover:text-foreground h-(--accordion-panel-height) pt-0 pb-4 data-ending-style:h-0 data-starting-style:h-0 [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4",
+                    className,
+                )}>
+                {children}
+            </div>
+        </AccordionPrimitive.Panel>
     );
-};
+}
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

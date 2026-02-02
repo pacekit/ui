@@ -1,0 +1,42 @@
+---
+title: Reveal Text
+description: A smooth text reveals animation where each heading reveals related content on interaction.
+---
+
+<DemoPreview name="gsap-reveal-text" />
+
+## Examples
+
+### Word by word
+
+Set `type` to `words`, the text will be split by individual words.
+
+<DemoPreview demoPath="demo/gsap/reveal-text/words.tsx" />
+
+### Line by line
+
+Set `type` to `lines`, the text will be split by individual lines.
+
+<DemoPreview demoPath="demo/gsap/reveal-text/lines.tsx" />
+
+### Masked line
+
+Set `splitTextVars` with the code to reveal each line as if it's masked.
+
+<DemoPreview demoPath="demo/gsap/reveal-text/masked-lines.tsx" />
+
+### Assemble
+
+Set `gsapVars` with the code, and the text will appear as if it's coming from broken pieces.
+
+<DemoPreview demoPath="demo/gsap/reveal-text/assemble.tsx" />
+
+## Props
+
+### RevealText
+
+| Prop          | Type                    | Default |
+| ------------- | ----------------------- | ------- |
+| type          | `chars` `words` `lines` | chars   |
+| gsapVars      | gsap.TweenVars          | -       |
+| splitTextVars | SplitText.Vars          | -       |

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { RollingNumber } from "@/components/gsap/rolling-number";
@@ -14,8 +13,8 @@ const fetchGitHubStars = async (repo: string): Promise<number> => {
 };
 
 export const GithubStarCounter = ({
-    repo = "shadcn/ui",
-    defaultStar = "00000",
+    repo = "pacekit/ui",
+    defaultStar = "000",
 }: {
     repo: string;
     defaultStar?: number | string;
@@ -33,7 +32,7 @@ export const GithubStarCounter = ({
     }, [repo]);
 
     return (
-        <Link
+        <a
             className="bg-card border-foreground/5 flex items-center gap-2 rounded-full border-2 px-3 transition-all"
             href={`https://github.com/${repo}`}
             target="_blank">
@@ -44,9 +43,9 @@ export const GithubStarCounter = ({
             </svg>
             <div className="relative h-9 overflow-hidden rounded pt-1 pb-1">
                 <RollingNumber targetNumber={stars} duration={2} className="text-lg font-medium" height={16} />
-                <div className="from-card via-card/70 absolute inset-x-0 top-0 h-3.5 bg-linear-to-b to-transparent"></div>
-                <div className="from-card via-card/70 absolute inset-x-0 bottom-0 h-3.5 bg-linear-to-t to-transparent"></div>
+                <div className="from-card via-card/80 absolute inset-x-0 top-0 h-3.5 bg-linear-to-b to-transparent"></div>
+                <div className="from-card via-card/80 absolute inset-x-0 bottom-0 h-3.5 bg-linear-to-t to-transparent"></div>
             </div>
-        </Link>
+        </a>
     );
 };

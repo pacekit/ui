@@ -1,11 +1,20 @@
 {
     "headers": [
         {
-            "source": "/(.*)",
+            "source": "/assets/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
-                    "value": "public, s-maxage=21600, stale-while-revalidate=21600"
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/(.*)\\.(ico|jpg|jpeg|png|gif|svg|webp|woff|woff2)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, s-maxage=86400, stale-while-revalidate"
                 }
             ]
         }

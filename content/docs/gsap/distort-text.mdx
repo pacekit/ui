@@ -1,0 +1,58 @@
+---
+title: Distort Text
+description: A responsive text effect that scrambles nearby characters as the cursor moves across a paragraph.
+---
+
+<DemoCodePreview path="demo/components/distort-text/default.tsx" v0Link="/gsap/distort-text" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+    <TabsList>
+        <TabsTrigger value="cli">CLI</TabsTrigger>
+        <TabsTrigger value="manual">Manual</TabsTrigger>
+    </TabsList>
+    <TabsContent value="cli">
+        ```npm
+        npx shadcn@latest add @paceui-ui/distort-text
+        ```
+    </TabsContent>
+    <TabsContent value="manual">
+        <Steps>
+            <Step>
+                **Install the following dependencies**
+            </Step>
+            ```npm
+            npm install gsap @gsap/react
+            ```
+            <Step>
+                **Copy and paste the following code into your project**
+            </Step>
+            <CodePreview path='components/gsap/distort-text.tsx' collapsible></CodePreview>
+
+            <Step>
+                **Update the import paths to fit your project setup**
+            </Step>
+
+        </Steps>
+    </TabsContent>
+
+</Tabs>
+
+## Examples
+
+### Use \* as chars
+
+Set `distortChar` to any character (e.g., \*) to scramble the text with your chosen character.
+
+<DemoCodePreview path="demo/components/distort-text/asterisk.tsx" v0Link="/gsap/distort-text" />
+
+## Props
+
+### DistortText
+
+| Prop        | Type   | Default |
+| ----------- | ------ | ------- |
+| distortChar | string | .:      |
+
+<span className="text-muted-foreground">Inspired by Tom Miller's work</span>

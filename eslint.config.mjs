@@ -1,27 +1,39 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import { tanstackConfig } from "@tanstack/eslint-config";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { defineConfig, globalIgnores } from "eslint/config";
 
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-    ...compat.extends("next/core-web-vitals", "next/typescript"),
-    {
-        ignores: ["node_modules/**", ".next/**", "out/**", "build/**", ".source/**", "next-env.d.ts"],
-    },
+const eslintConfig = defineConfig([
+    ...tanstackConfig,
+    globalIgnores(["out/**", "build/**", "next-env.d.ts", ".source/**", ".output/**", "scripts/**"]),
     {
         rules: {
+            "@typescript-eslint/array-type": "off",
+            "@typescript-eslint/no-unnecessary-condition": "off",
+            "@typescript-eslint/consistent-type-imports": "off",
+            "import/order": "off",
+            "@typescript-eslint/naming-convention": "off",
+            "import/consistent-type-specifier-style": "off",
+            "@typescript-eslint/require-await": "off",
+            "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+            "no-shadow": "off",
             "@typescript-eslint/ban-ts-comment": "off",
-            "@next/next/no-img-element": "off",
-            "react/no-unescaped-entities": "off",
-            "import/no-anonymous-default-export": "off",
+            "no-restricted-syntax": "off",
+            "@typescript-eslint/no-unnecessary-type-assertion": "off",
         },
     },
-];
+    {
+        files: ["**/*.{ts,tsx,js,jsx}"],
+        ignores: ["src/lib/env.ts"],
+        rules: {
+            "no-restricted-syntax": [
+                "error",
+                {
+                    selector: "MemberExpression[object.name='process'][property.name='env']",
+                    message: "Use @/lib/env instead of process.env",
+                },
+            ],
+        },
+    },
+]);
 
 export default eslintConfig;

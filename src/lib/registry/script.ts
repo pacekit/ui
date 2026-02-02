@@ -1,22 +1,18 @@
-import * as fs from "node:fs/promises";
+import fs from "node:fs/promises";
 import path from "path";
-import type { RegistryItem } from "shadcn/schema";
+import { RegistryItem } from "shadcn/schema";
 
-import { blockRegistries } from "./blocks";
-import { gsapComponentRegistries } from "./gsap-components";
+import { publicRegistries } from "./data/public";
 
-// Registry paths
 const REGISTRY_PATH = path.join(process.cwd(), "public/r/");
-const MCP_REGISTRY_PATH = REGISTRY_PATH + "/";
 
-// Project source path
 const SOURCE_PATH = path.join(process.cwd(), "/src/");
 
-const buildMCP = async () => {
+const buildMCP = async (registries: RegistryItem[]) => {
     const mcp = {
         $schema: "https://ui.shadcn.com/schema/registry.json",
-        name: "PaceUI",
-        homepage: "https://ui.paceui.com",
+        name: "PaceKit UI",
+        homepage: "https://ui.pacekit.dev",
         items: [
             {
                 name: "index",
@@ -26,30 +22,29 @@ const buildMCP = async () => {
                 cssVars: {},
                 files: [],
             },
-            ...gsapComponentRegistries,
-            ...blockRegistries,
+            ...registries,
         ],
     };
-    await fs.writeFile(MCP_REGISTRY_PATH + "mcp.json", JSON.stringify(mcp), {
+    await fs.writeFile(REGISTRY_PATH + "mcp.json", JSON.stringify(mcp), {
         encoding: "utf8",
     });
-    await fs.writeFile(MCP_REGISTRY_PATH + "registry.json", JSON.stringify(mcp), {
+    await fs.writeFile(REGISTRY_PATH + "registry.json", JSON.stringify(mcp), {
         encoding: "utf8",
     });
 };
 
-const buildRegistry = async (name: string, path: string, registries: RegistryItem[]) => {
+const buildRegistry = async (path: string, registries: RegistryItem[]) => {
     try {
         await fs.mkdir(path, { recursive: true });
     } catch (e) {
         console.info(e);
     }
 
-    for (const item of registries) {
-        const DEST = path + item.name + ".json";
+    for (const registry of registries) {
+        const DEST = path + registry.name + ".json";
         const newFiles = [];
-        for (const file of item.files ?? []) {
-            let filePath = SOURCE_PATH + `${name}/` + file.path;
+        for (const file of registry.files ?? []) {
+            let filePath = SOURCE_PATH + file.path;
             if (file.type == "registry:hook") {
                 filePath = SOURCE_PATH + file.path;
             }
@@ -59,17 +54,16 @@ const buildRegistry = async (name: string, path: string, registries: RegistryIte
                 content,
             });
         }
-        await fs.writeFile(DEST, JSON.stringify({ ...item, files: newFiles }), {
+        await fs.writeFile(DEST, JSON.stringify({ ...registry, files: newFiles }), {
             encoding: "utf8",
         });
     }
 };
 
 const init = async () => {
-    // registry:build - components/**
-    await buildRegistry("components", REGISTRY_PATH, gsapComponentRegistries);
-    await buildRegistry("demo/blocks", REGISTRY_PATH, blockRegistries);
-    await buildMCP();
+    const registries = publicRegistries.map(({ demoPath, ...registry }) => registry);
+    await buildRegistry(REGISTRY_PATH, registries);
+    await buildMCP(registries);
 };
 
 init().then(() => {

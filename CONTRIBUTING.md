@@ -1,6 +1,6 @@
-# Contributing to PaceUI
+# Contributing to PaceKit
 
-First off, thank you for considering contributing to PaceUI! 🎉 We love our community and are excited to see your contributions. These guidelines will help you get started.
+First off, thank you for considering contributing to PaceKit! 🎉 We love our community and are excited to see your contributions. These guidelines will help you get started.
 
 ---
 
@@ -14,7 +14,7 @@ We have a **Code of Conduct** to ensure our community is welcoming and inclusive
 
 Ready to contribute? Here’s how to set up your development environment:
 
-1.  **Fork the Repository**: Click the 'Fork' button at the top right of the PaceUI GitHub page.
+1.  **Fork the Repository**: Click the 'Fork' button at the top right of the PaceKit GitHub page.
 
 2.  **Clone Your Fork**: Clone your forked repository to your local machine.
 
@@ -90,7 +90,7 @@ Once your component is ready, push your branch to your fork and open a pull requ
     ```bash
     git push origin your-branch-name
     ```
-2.  **Open a Pull Request**: Go to the PaceUI repository on GitHub and click "New pull request".
+2.  **Open a Pull Request**: Go to the PaceKit repository on GitHub and click "New pull request".
 3.  **Provide Details**: Fill out the pull request template with a clear title and a detailed description of your changes.
 
 Thank you again for your contribution. Let's build amazing things together! ❤️

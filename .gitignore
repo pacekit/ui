@@ -1,50 +1,31 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# ignore other lockfiles
-yarn.lock
+node_modules
 package-lock.json
-bun.lock
+yarn.lock
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
+.cache
+.env
 .vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# extras
+.output
+.nitro
+/build/
+/api/
+/server/build
+/public/build# Sentry Config File
+.env.sentry-build-plugin
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.tanstack
+routeTree.gen.ts
+sqlite.db
+dist
+bun.lock
+drizzle
 .idea
+source.generated.ts
 .source
+.*.env
+.vite
+.env.production

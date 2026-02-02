@@ -1,17 +1,72 @@
-@layer base {
-    * {
-        @apply border-border outline-ring/50;
-    }
-    html {
-        @apply scroll-smooth;
-    }
-    body {
-        @apply bg-background text-foreground;
+@import "fumadocs-ui/css/preset.css";
+
+@theme inline {
+    --color-fd-primary: var(--color-primary);
+    --color-fd-background: var(--color-background);
+    --color-fd-foreground: var(--color-foreground);
+    --color-fd-popover: var(--color-popover);
+    --color-fd-secondary: var(--color-secondary);
+    --color-fd-secondary-foreground: var(--color-secondary-foreground);
+    --color-fd-accent: var(--color-accent);
+    --color-fd-accent-foreground: var(--color-accent-foreground);
+    --color-fd-muted-foreground: var(--color-muted-foreground);
+    --color-fd-border: var(--color-border);
+    --color-fd-diff-add-symbol: inherit;
+    --color-fd-diff-remove-symbol: inherit;
+    --color-fd-diff-add: color-mix(in oklab, var(--color-success) 15%, #0000);
+    --color-fd-diff-remove: color-mix(in oklab, var(--color-destructive) 15%, #0000);
+    --color-fd-muted: color-mix(in oklab, var(--color-foreground) 5%, #0000);
+}
+
+.prose {
+    :root & {
+        @supports (color: color-mix(in lab, red, red)) {
+            --tw-prose-th-borders: var(--color-border);
+        }
     }
 }
 
-@layer utilities {
-    .container {
-        @apply mx-auto;
+#nd-docs-layout {
+    @apply bg-background;
+}
+
+#nd-sidebar {
+    @apply bg-sidebar;
+}
+
+.fd-steps {
+    @apply space-y-2.5;
+
+    .fd-step:before {
+        @apply -start-3.5 size-7;
+    }
+}
+
+figure.shiki {
+    @apply shadow-xs;
+}
+
+html:not(.layout-width-full) {
+    .container-wrapper {
+        @apply container;
+    }
+}
+
+html.layout-width-full {
+    .container-wrapper {
+        @apply sm:px-4;
+    }
+}
+
+.container-wrapper {
+    @apply mx-auto;
+}
+
+/* Code Viewer */
+[data-slot="code-viewer"] {
+    .shiki {
+        pre {
+            @apply max-h-60;
+        }
     }
 }

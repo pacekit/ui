@@ -1,0 +1,22 @@
+.container {
+    @apply mx-auto max-lg:px-3;
+}
+
+.view-padding {
+    @apply xl:px-12 2xl:px-24;
+}
+
+button {
+    @apply cursor-pointer;
+}
+
+.custom-scrollbar {
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 0.5s ease-out;
+
+    &:hover {
+        scrollbar-color: rgba(150, 150, 150, 0.4) transparent;
+    }
+}

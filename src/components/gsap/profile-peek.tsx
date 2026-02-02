@@ -101,8 +101,8 @@ export const ProfilePeek = ({ trigger, content, className, ...props }: HoverProf
     );
 
     return (
-        <div {...props} ref={componentRef} className={cn("relative z-0 [perspective:800px]", className)}>
-            <div ref={cardRef} className="absolute [transform-style:preserve-3d]">
+        <div {...props} ref={componentRef} className={cn("relative z-0 perspective-midrange", className)}>
+            <div ref={cardRef} className="absolute transform-3d">
                 <div ref={contentRef} style={{ display: "none" }}>
                     {content}
                 </div>

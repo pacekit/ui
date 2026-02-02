@@ -1,20 +1,19 @@
-![hero](/public/images/og.jpg)
+![hero](/public/brand/og/default.jpg)
 
-Animated **components** and design **blocks** crafted for smooth interaction and rich detail.
-Copy, customise, and create without the extra setup.
+Carefully built UI sections and animations made to integrate smoothly into real apps, from early
+ideas to production releases.
 
 ## Getting Started
 
-Explore the full documentation at [ui.paceui.com](https://ui.paceui.com/) and start building faster.
+Explore the full documentation at [ui.pacekit.dev](https://ui.pacekit.dev/) and start building faster.
 
 ### Quick Links
 
-- [Animated Components](https://ui.paceui.com/docs/components)  
-  Reusable UI elements with built-in interactivity
-- [Design Blocks](https://ui.paceui.com/docs/blocks)  
-  Pre-built layouts for pages, sections, and flows
+- [Design Blocks](https://ui.pacekit.dev/docs/blocks)  
+  Production-ready UI blocks designed for developers and optimized for real apps.
+- [Animated Components](https://ui.pacekit.dev/docs/gsap) crafted for smooth interaction and rich detail
 
-More animations, interactive sections, and design tools are coming soon.
+More blocks, interactive sections, and design tools are coming soon.
 
 ## Contributing
 
@@ -26,7 +25,7 @@ To ensure we maintain a welcoming and inclusive community, we ask all contributo
 
 ## License
 
-Released under the [MIT license](https://github.com/paceui/ui/blob/main/LICENSE.md).
+Released under the [MIT license](https://github.com/pacekit/ui/blob/main/LICENSE.md).
 Use it.
 Remix it.
 Make it yours.

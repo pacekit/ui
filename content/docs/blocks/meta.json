@@ -1,0 +1,6 @@
+{
+    "title": "Blocks",
+    "description": "",
+    "root": true,
+    "pages": ["index", "installation", "---Dashboard---", "stats", "charts"]
+}
