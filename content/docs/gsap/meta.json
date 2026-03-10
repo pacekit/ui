@@ -25,6 +25,7 @@
         "---Buttons---",
         "text-fall-button",
         "spring-button",
+        "fillable-button",
         "---Utility & Misc---",
         "swap",
         "animated-stack",

@@ -126,6 +126,12 @@ export const publicRegistries: GeneratedRegistry[] = [
         paths: ["demo/gsap/spring-button/default.tsx", "components/gsap/spring-button.tsx"],
     },
     {
+        name: "gsap-fillable-button",
+        title: "Fillable Button",
+        description: "A button that fills with color on hover.",
+        paths: ["demo/gsap/fillable-button/default.tsx", "components/gsap/fillable-button.tsx"],
+    },
+    {
         name: "gsap-swap",
         title: "Swap",
         description:
