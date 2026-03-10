@@ -7,17 +7,80 @@ description: A button with a liquid fill effect that follows the cursor on hover
 
 ## Examples
 
-### Variants
+### Sizes
 
-<DemoPreview demoPath="demo/gsap/fillable-button/variants.tsx" />
+<DemoPreview demoPath="demo/gsap/fillable-button/sizes.tsx" />
+
+### Default
+
+<DemoPreview demoPath="demo/gsap/fillable-button/variant-default.tsx" />
+
+### Outline
+
+<DemoPreview demoPath="demo/gsap/fillable-button/variant-outline.tsx" />
+
+### Destructive
+
+<DemoPreview demoPath="demo/gsap/fillable-button/variant-destructive.tsx" />
+
+### Secondary
+
+<DemoPreview demoPath="demo/gsap/fillable-button/variant-secondary.tsx" />
+
+### Ghost
+
+<DemoPreview demoPath="demo/gsap/fillable-button/variant-ghost.tsx" />
+
+### Link
+
+<DemoPreview demoPath="demo/gsap/fillable-button/variant-link.tsx" />
+
+## Customizing
+
+### Custom Overlay Color
+
+Use `overlayClassname` to replace the fill color with any Tailwind background class.
+
+<DemoPreview demoPath="demo/gsap/fillable-button/custom-overlay.tsx" />
+
+## Usage
+
+```tsx
+import { FillableButton } from "@/components/gsap/fillable-button"
+```
+
+```tsx
+<FillableButton>Click me</FillableButton>
+```
+
+### Icon
+
+<DemoPreview demoPath="demo/gsap/fillable-button/icon.tsx" />
+
+### With Icon
+
+Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attribute to the icon for the correct spacing.
+
+<DemoPreview demoPath="demo/gsap/fillable-button/with-icon.tsx" />
+
+### Border Radius
+
+<DemoPreview demoPath="demo/gsap/fillable-button/border-radius.tsx" />
+
+### Loading
+
+Render a `<Spinner />` component inside the button to show a loading state. Remember to add the `data-icon="inline-start"` or `data-icon="inline-end"` attribute to the spinner for the correct spacing.
+
+<DemoPreview demoPath="demo/gsap/fillable-button/loading.tsx" />
 
 ## Props
 
 ### FillableButton
 
-| Prop             | Type                                                              | Default     |
-| ---------------- | ----------------------------------------------------------------- | ----------- |
-| variant          | `"default" \| "outline" \| "destructive" \| "secondary" \| "ghost" \| "link"` | `"default"` |
-| overlayClassname | string                                                            | —           |
+| Prop               | Type                                                                                    | Default     |
+| ------------------ | --------------------------------------------------------------------------------------- | ----------- |
+| `variant`          | `"default" \| "outline" \| "destructive" \| "secondary" \| "ghost" \| "link"`         | `"default"` |
+| `size`             | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| "icon-xs" \| "icon-sm" \| "icon-lg"` | `"default"` |
+| `overlayClassname` | `string`                                                                                | —           |
 
-<span className="text-muted-foreground">Inspired by Josh Dillon's work</span>
+<span className="text-muted-foreground">Created by <a href="https://github.com/abnerjs" target='_blank'>@abnerjs</a> | Inspired by "Get GSAP" Button on GSAP website</span>
