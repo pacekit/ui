@@ -11,10 +11,10 @@ const overlayVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-zinc-700",
-        outline: "bg-zinc-500 dark:bg-zinc-400",
+        default: "bg-primary",
+        outline: "bg-input",
         destructive: "bg-destructive",
-        secondary: "bg-zinc-700 dark:bg-zinc-300",
+        secondary: "bg-secondary-foreground",
         ghost: "bg-muted",
         link: "",
       },
@@ -31,16 +31,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "relative bg-zinc-950 dark:bg-zinc-50 text-white dark:text-zinc-950 dark:hover:text-white overflow-hidden rounded-full! px-6 py-3.5 tracking-tight after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:content-['']",
+          "relative bg-primary/50 text-primary-foreground overflow-hidden rounded-full! px-6 py-3.5 tracking-tight after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:content-[''] ",
         outline:
-          "relative overflow-hidden rounded-full! bg-transparent text-foreground px-6 py-3.5 tracking-tight hover:text-background after:absolute after:inset-0 after:rounded-full after:border-2 after:border-zinc-500 after:pointer-events-none after:content-[''] dark:after:border-zinc-400",
+          "relative overflow-hidden rounded-full! bg-transparent text-foreground px-6 py-3.5 tracking-tight after:absolute after:inset-0 after:rounded-full after:border-2 after:border-input after:pointer-events-none after:content-[''] ",
         destructive:
-          "relative bg-red-300 dark:bg-red-800 text-red-900 dark:text-red-100 hover:text-white dark:hover:text-white overflow-hidden rounded-full! px-6 py-3.5 tracking-tight",
+          "relative bg-destructive/10 dark:bg-destructive/20 text-destructive hover:text-background overflow-hidden rounded-full! px-6 py-3.5 tracking-tight",
         secondary:
-          "relative bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-zinc-200 hover:text-white dark:hover:text-zinc-950 overflow-hidden rounded-full! px-6 py-3.5 tracking-tight",
+          "relative bg-secondary text-secondary-foreground hover:text-background overflow-hidden rounded-full! px-6 py-3.5 tracking-tight",
         ghost:
           "relative bg-transparent text-foreground hover:text-accent-foreground overflow-hidden rounded-full! px-6 py-3.5 tracking-tight",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "relative text-primary",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -73,15 +73,54 @@ function FillableButton({
   }) {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const flairRef = React.useRef<HTMLSpanElement>(null);
-
-  const isHoverVariant = variant !== "link";
+  const underlineRef = React.useRef<HTMLSpanElement>(null);
 
   React.useEffect(() => {
-    if (!isHoverVariant) return;
-
     const button = buttonRef.current;
+    if (!button) return;
+
+    if (variant === "link") {
+      const underline = underlineRef.current;
+      if (!underline) return;
+
+      const getXPercent = (e: MouseEvent) => {
+        const { left, width } = button!.getBoundingClientRect();
+        return gsap.utils.clamp(0, 100, ((e.clientX - left) / width) * 100);
+      };
+
+      const handleEnter = (e: MouseEvent) => {
+        const xPercent = getXPercent(e);
+        gsap.killTweensOf(underline);
+        gsap.fromTo(
+          underline,
+          { scaleX: 0, transformOrigin: `${xPercent}% center` },
+          { scaleX: 1, duration: 0.3, ease: "power2.out" },
+        );
+      };
+
+      const handleLeave = (e: MouseEvent) => {
+        const xPercent = getXPercent(e);
+        gsap.killTweensOf(underline);
+        gsap.to(underline, {
+          scaleX: 0,
+          transformOrigin: `${xPercent}% center`,
+          duration: 0.25,
+          ease: "power2.in",
+        });
+      };
+
+      button.addEventListener("mouseenter", handleEnter);
+      button.addEventListener("mouseleave", handleLeave);
+
+      return () => {
+        button.removeEventListener("mouseenter", handleEnter);
+        button.removeEventListener("mouseleave", handleLeave);
+        gsap.killTweensOf(underline);
+      };
+    }
+
     const flair = flairRef.current;
-    if (!button || !flair) return;
+    if (!flair) return;
 
     const xSet = gsap.quickSetter(flair, "xPercent");
     const ySet = gsap.quickSetter(flair, "yPercent");
@@ -159,7 +198,7 @@ function FillableButton({
       button.removeEventListener("mousemove", onMouseMove);
       gsap.killTweensOf(flair);
     };
-  }, [isHoverVariant, variant]);
+  }, [variant]);
 
     return (
       <button
@@ -170,14 +209,22 @@ function FillableButton({
         className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       >
-        <span
-          ref={flairRef}
-          className="pointer-events-none absolute inset-0 origin-top-left scale-0 will-change-transform"
-        >
-          <span className={cn(overlayVariants({ variant }), overlayClassname)} />
-        </span>
+        {variant !== "link" && (
+          <span
+            ref={flairRef}
+            className="pointer-events-none absolute inset-0 origin-top-left scale-0 will-change-transform"
+          >
+            <span className={cn(overlayVariants({ variant }), overlayClassname)} />
+          </span>
+        )}
         <span className="relative z-10 flex items-center gap-2">
           {children}
+          {variant === "link" && (
+            <span
+              ref={underlineRef}
+              className="absolute bottom-0 left-0 h-[1.5px] w-full scale-x-0 bg-current"
+            />
+          )}
         </span>
       </button>
     );

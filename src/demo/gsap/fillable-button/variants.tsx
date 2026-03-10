@@ -8,6 +8,7 @@ export const Demo = () => {
             <FillableButton variant="destructive">Destructive</FillableButton>
             <FillableButton variant="secondary">Secondary</FillableButton>
             <FillableButton variant="ghost">Ghost</FillableButton>
+            <FillableButton variant="link">Link</FillableButton>
         </div>
     );
 };
