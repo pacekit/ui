@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 
 import { Folder, Node } from "fumadocs-core/page-tree";
 
@@ -7,21 +7,7 @@ import { cn } from "@/lib/utils";
 import { Logo } from "@/components/shared/layouts/logo";
 import { SidebarContent, SidebarHeader } from "@/components/ui/sidebar";
 
-import { navItems } from "./config";
 import { SidebarItem } from "./sidebar-item";
-
-const filterTree = (tree: Folder, path: string) => {
-    const navItem = navItems.find((item) => path.includes(item.href)) ?? navItems[0];
-
-    const canAddFolder = (item: Node) => {
-        if (item.type == "folder") {
-            return item.children.some((child) => {
-                return child.type === "page" && child.url.startsWith(navItem?.href);
-            });
-        }
-    };
-    return tree.children.filter((item) => canAddFolder(item));
-};
 
 export const Sidebar = ({
     tree,
@@ -34,8 +20,7 @@ export const Sidebar = ({
     className?: string;
     showHeader?: boolean;
 }) => {
-    const { pathname } = useLocation();
-    const items = filterTree(tree, pathname);
+    const items = tree.children;
 
     return (
         <div className={cn("bg-sidebar text-sidebar-foreground flex flex-col overflow-auto", className)}>

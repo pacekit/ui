@@ -70,3 +70,30 @@ html.layout-width-full {
         }
     }
 }
+
+@theme {
+    --animate-title-shape-morph: title-shape-morph 10s linear infinite;
+}
+
+@keyframes title-shape-morph {
+    0% {
+        border-radius: 0;
+    }
+    20% {
+        transform: rotate(1deg);
+    }
+    40% {
+        transform: rotate(1deg) skew(1deg);
+    }
+    60% {
+        border-radius: 6px;
+        transform: scale(1.03);
+    }
+    80% {
+        transform: rotate(-1deg);
+    }
+    100% {
+        transform: none;
+        border-radius: 0;
+    }
+}

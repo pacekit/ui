@@ -2,12 +2,18 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 import { Suspense } from "react";
 
+
+
 import { findNeighbour } from "fumadocs-core/page-tree";
 import { useFumadocsLoader } from "fumadocs-core/source/client";
 import browserCollections from "fumadocs-mdx:collections/browser";
 import { ArrowLeftIcon, ArrowRightIcon, HomeIcon } from "lucide-react";
 
+
+
 import { source } from "@/features/docs/source";
+
+
 
 import { TOCAds } from "@/components/shared/docs/TOCAds";
 import { getMDXComponents } from "@/components/shared/docs/mdx";
@@ -15,6 +21,29 @@ import { DocsTableOfContents } from "@/components/shared/docs/toc";
 import { Footer } from "@/components/shared/layouts/footer";
 import { Sidebar } from "@/components/shared/layouts/sidebar";
 import { Button } from "@/components/ui/button";
+import { Topbar } from "@/components/shared/layouts/topbar";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const Route = createFileRoute("/docs/$")({
     component: Page,
@@ -40,8 +69,7 @@ const serverLoader = createServerFn({
 })
     .inputValidator((slugs: string[]) => slugs)
     .handler(async ({ data }): Promise<DocsPageData> => {
-        const slugs = data.length == 1 && data[0] === "" ? ["blocks"] : data;
-        const page = source.getPage(slugs);
+        const page = source.getPage(data);
         if (!page) throw notFound();
         const pageTree = await source.serializePageTree(source.getPageTree());
         const path = page.path;
@@ -163,13 +191,17 @@ function Page() {
     const data = useFumadocsLoader(Route.useLoaderData());
 
     return (
-        <div className="flex gap-4 2xl:gap-5">
-            <Sidebar
-                tree={data.pageTree}
-                className="sticky top-(--header-height) h-[calc(100svh-3rem)] w-(--sidebar-width) min-w-(--sidebar-min-width) max-md:hidden"
-            />
-            <div className="min-w-0 grow">
-                <Suspense>{clientLoader.useContent(data.path)}</Suspense>
+        <div className="container-wrapper flex min-h-svh w-full flex-col [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] [--sidebar-min-width:12rem] [--sidebar-width:14rem]">
+            <Topbar />
+
+            <div className="flex gap-4 2xl:gap-5">
+                <Sidebar
+                    tree={data.pageTree}
+                    className="sticky top-(--header-height) h-[calc(100svh-3rem)] w-(--sidebar-width) min-w-(--sidebar-min-width) max-md:hidden"
+                />
+                <div className="min-w-0 grow">
+                    <Suspense>{clientLoader.useContent(data.path)}</Suspense>
+                </div>
             </div>
         </div>
     );

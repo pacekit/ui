@@ -1,15 +1,39 @@
 import { ComponentProps } from "react";
 
+
+
 import { Links } from "@/lib/links";
 import { cn } from "@/lib/utils";
 
+
+
 import { Button } from "@/components/ui/button";
+
+
 
 import { Icons } from "../icons";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const Footer = ({ className, ...props }: ComponentProps<"div">) => {
     return (
-        <div {...props} className={cn("flex flex-wrap items-center justify-between max-sm:justify-center", className)}>
+        <div
+            {...props}
+            className={cn(
+                "flex h-(--footer-height) flex-wrap items-center justify-between max-sm:justify-center",
+                className,
+            )}>
             <p className="max-sm:text-center max-sm:text-sm">
                 Built by{" "}
                 <a

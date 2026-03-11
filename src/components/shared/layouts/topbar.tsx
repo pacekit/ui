@@ -8,12 +8,10 @@ import { Links } from "@/lib/links";
 import { Button } from "@/components/ui/button";
 
 import { Icons } from "../icons";
-import { navItems } from "./config";
 import { LayoutWidthManager } from "./layout-width-manager";
 import { Logo } from "./logo";
 import { MobileNav } from "./mobile-nav";
 import { ThemeManager } from "./theme-manager";
-import { TopNav } from "./top-nav";
 
 export const Topbar = () => {
     const { setOpenSearch } = useSearchContext();
@@ -24,12 +22,11 @@ export const Topbar = () => {
                 <div className="md:hidden">
                     <MobileNav />
                 </div>
-                <Link to="/">
-                    <Logo />
-                    <span className="sr-only">PaceKit</span>
-                </Link>
-                <TopNav items={navItems} className="ms-3 hidden lg:flex" />
-                <div className="ml-auto flex items-center gap-0 md:flex-1 md:justify-end">
+                {/*<Link to="/">*/}
+                {/*    <Logo />*/}
+                {/*    <span className="sr-only">PaceKit</span>*/}
+                {/*</Link>*/}
+                <div className="ms-4">
                     <Button
                         variant="outline"
                         size="sm"
@@ -54,8 +51,8 @@ export const Topbar = () => {
                         aria-label="Search">
                         <SearchIcon className="size-4.5" />
                     </Button>
-
-                    <div className="bg-border ms-3 me-2 h-6.5 w-px" />
+                </div>
+                <div className="ml-auto flex items-center gap-0 md:flex-1 md:justify-end">
                     <div className="flex items-center gap-1">
                         <Button
                             variant="ghost"

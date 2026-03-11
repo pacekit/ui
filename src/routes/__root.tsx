@@ -3,14 +3,59 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { ReactNode } from "react";
 
+
+
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider/tanstack";
 import { ThemeProvider } from "next-themes";
 
-import { Topbar } from "@/components/shared/layouts/topbar";
+
+
 import { Toaster } from "@/components/ui/sonner";
 
+
+
 import appCss from "@/styles/globals.css?url";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const Route = createRootRoute({
     head: () => ({
@@ -38,8 +83,7 @@ export const Providers = ({ children }: { children: ReactNode }) => {
             <RootProvider>
                 <Toaster />
                 <QueryClientProvider client={queryClient}>
-                    <div className="container-wrapper flex min-h-svh w-full flex-col [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] [--sidebar-min-width:12rem] [--sidebar-width:14rem]">
-                        <Topbar />
+                    <div className="[--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] [--sidebar-min-width:12rem] [--sidebar-width:14rem]">
                         {children}
                     </div>
                 </QueryClientProvider>

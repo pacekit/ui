@@ -1,10 +1,13 @@
 {
-    "title": "GSAP",
-    "description": "",
+    "title": "Components",
+    "description": "Beautiful, animated components",
+    "icon": "Shapes",
     "root": true,
+    "collapsed": false,
+    "collapsible": true,
     "pages": [
-        "index",
-        "installation",
+        "../index",
+        "../installation",
         "---AI Toolkit---",
         "ai-modal-selector",
         "ai-modal-ability-selector",
