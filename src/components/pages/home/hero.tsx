@@ -77,7 +77,7 @@ export const Hero = () => {
                         Pop & Press
                     </SpringButton>
                     <hr className="h-6 border-s border-dashed" />
-                    <GithubStarCounter repo="paceui/kit" defaultStar="000" />
+                    <GithubStarCounter repo="pacekit/gsap" defaultStar="000" />
                 </div>
                 <hr className="border-t border-dashed px-24" />
                 <ProductDemo />
