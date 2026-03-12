@@ -1,10 +1,10 @@
 {
-    "name": "pacekit-ui",
-    "description": "Carefully built UI blocks for real apps and dashboards, designed to integrate smoothly from early ideas to production releases",
+    "name": "pacekit-gsap",
+    "description": "Animated GSAP components crafted for smooth interaction and rich detail. Copy, customise, and create without the extra setup.",
     "version": "1.0.0",
     "private": true,
     "type": "module",
-    "repository": "https://github.com/pacekit/ui",
+    "repository": "https://github.com/pacekit/gsap",
     "author": {
         "name": "Denish Navadiya",
         "url": "https://x.com/withden_"
