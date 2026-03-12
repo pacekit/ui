@@ -206,6 +206,22 @@ export const registries: DataRegistry[] = [
         ],
     },
     {
+        name: "fillable-button",
+        title: "Fillable Button",
+        description:
+            "A button that fills with color on hover.",
+        type: "registry:ui",
+        demoPath: "demo/gsap/fillable-button/default.tsx",
+        dependencies: ["gsap", "@gsap/react"],
+        files: [
+            {
+                path: "components/gsap/fillable-button.tsx",
+                type: "registry:ui",
+                target: "~/components/gsap/fillable-button.tsx",
+            },
+        ],
+    },
+    {
         name: "swap",
         title: "Swap",
         description:
