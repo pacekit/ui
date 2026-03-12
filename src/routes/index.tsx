@@ -27,7 +27,7 @@ function RouteComponent() {
                 </span>
             </a>
             <div className="bg-background/90 sticky top-0 z-10 border-b border-dashed backdrop-blur-md">
-                <div className="container h-16">
+                <div className="container">
                     <Topbar />
                 </div>
             </div>
