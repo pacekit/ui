@@ -1,19 +1,17 @@
-![hero](/public/brand/og/default.jpg)
+![hero](/public/images/brand/og/default.jpg)
 
-Carefully built UI sections and animations made to integrate smoothly into real apps, from early
+Carefully built GSAP animation components are made to integrate smoothly into real apps, from early
 ideas to production releases.
 
 ## Getting Started
 
-Explore the full documentation at [ui.pacekit.dev](https://ui.pacekit.dev/) and start building faster.
+Explore the full documentation at [gsap.pacekit.dev](https://gsap.pacekit.dev/) and start building faster.
 
 ### Quick Links
 
-- [Design Blocks](https://ui.pacekit.dev/docs/blocks)  
-  Production-ready UI blocks designed for developers and optimized for real apps.
-- [Animated Components](https://ui.pacekit.dev/docs/gsap) crafted for smooth interaction and rich detail
+- [Animated Components](https://gsap.pacekit.dev/) crafted for smooth interaction and rich detail
 
-More blocks, interactive sections, and design tools are coming soon.
+Interactive sections and design tools are coming soon.
 
 ## Contributing
 
@@ -25,7 +23,7 @@ To ensure we maintain a welcoming and inclusive community, we ask all contributo
 
 ## License
 
-Released under the [MIT license](https://github.com/pacekit/ui/blob/main/LICENSE.md).
+Released under the [MIT license](https://github.com/pacekit/gsap/blob/main/LICENSE.md).
 Use it.
 Remix it.
 Make it yours.
