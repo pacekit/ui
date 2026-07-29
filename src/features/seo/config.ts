@@ -1,14 +1,14 @@
 export const seoConfig = {
-    url: "https://gsap.pacekit.dev",
-    title: "Interactive animations shaping every experience | PaceKit GSAP",
-    defaultTitle: "PaceKit GSAP",
-    siteName: "PaceKit GSAP",
+    url: "https://gsap.paceui.com",
+    title: "Interactive animations shaping every experience | PaceUI GSAP",
+    defaultTitle: "PaceUI GSAP",
+    siteName: "PaceUI GSAP",
     description:
         "Animated GSAP components crafted for smooth interaction and rich detail. Copy, customise, and create without the extra setup.",
-    siteNameTwitter: "@pacekit_",
-    author: "PaceKit",
-    authorUrl: "https://pacekit.dev",
-    publisher: "Pacekit",
+    siteNameTwitter: "@paceui_",
+    author: "PaceUI",
+    authorUrl: "https://paceui.com",
+    publisher: "PaceUI",
     keywords: [
         "Pace Kit",
         "React GSAP",
@@ -29,8 +29,8 @@ export const seoConfig = {
 };
 
 export const getCombinedSchema = () => {
-    const parentBaseUrl = "https://pacekit.dev";
-    const baseUrl = "https://gsap.pacekit.dev";
+    const parentBaseUrl = "https://paceui.com";
+    const baseUrl = "https://gsap.paceui.com";
 
     const author = {
         "@id": `${parentBaseUrl}/#person`,
@@ -42,7 +42,7 @@ export const getCombinedSchema = () => {
     const organization = {
         "@id": `${parentBaseUrl}/#organization`,
         "@type": "Organization",
-        name: "PaceKit",
+        name: "PaceUI",
         url: parentBaseUrl,
         logo: `${parentBaseUrl}/images/brand/logo-icon.png`,
     };
@@ -51,7 +51,7 @@ export const getCombinedSchema = () => {
         "@type": "CollectionPage",
         "@id": `${baseUrl}/#webpage`,
         url: baseUrl,
-        name: "PaceKit GSAP - Animations Components",
+        name: "PaceUI GSAP - Animations Components",
         description: "Animated GSAP components crafted for smooth interaction and rich detail.",
         isPartOf: { "@id": `${parentBaseUrl}/#website` },
         publisher: { "@id": `${parentBaseUrl}/#organization` },
@@ -60,11 +60,11 @@ export const getCombinedSchema = () => {
     const app = {
         "@type": "SoftwareSourceCode",
         "@id": `${baseUrl}/#library`,
-        name: "PaceKit GSAP",
+        name: "PaceUI GSAP",
         description: "Animated GSAP components crafted for smooth interaction and rich detail.",
         runtimePlatform: "React",
         programmingLanguage: "TypeScript",
-        codeRepository: "https://github.com/pacekit",
+        codeRepository: "https://github.com/paceui",
         author: { "@id": `${parentBaseUrl}/#person` },
         publisher: { "@id": `${parentBaseUrl}/#organization` },
     };

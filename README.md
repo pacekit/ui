@@ -5,11 +5,11 @@ ideas to production releases.
 
 ## Getting Started
 
-Explore the full documentation at [gsap.pacekit.dev](https://gsap.pacekit.dev/) and start building faster.
+Explore the full documentation at [gsap.paceui.com](https://gsap.paceui.com/) and start building faster.
 
 ### Quick Links
 
-- [Animated Components](https://gsap.pacekit.dev/) crafted for smooth interaction and rich detail
+- [Animated Components](https://gsap.paceui.com/) crafted for smooth interaction and rich detail
 
 Interactive sections and design tools are coming soon.
 
@@ -23,7 +23,7 @@ To ensure we maintain a welcoming and inclusive community, we ask all contributo
 
 ## License
 
-Released under the [MIT license](https://github.com/pacekit/gsap/blob/main/LICENSE.md).
+Released under the [MIT license](https://github.com/paceui/gsap/blob/main/LICENSE.md).
 Use it.
 Remix it.
 Make it yours.

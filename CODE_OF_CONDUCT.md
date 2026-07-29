@@ -1,4 +1,4 @@
-# PaceUI - Code of Conduct
+# PaceUI GSAP - Code of Conduct
 
 ## Our Pledge
 

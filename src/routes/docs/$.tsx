@@ -20,16 +20,18 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/docs/$")({
     component: Page,
-    loader: async ({ params }) => {
+    loader: async ({ params, location }) => {
         const slugs = params._splat?.split("/") ?? [];
         const data = await serverLoader({ data: slugs });
         await clientLoader.preload(data.path);
-        return data;
+        console.info(slugs, "slugs");
+        return { data, pathname: location.pathname };
     },
     head: ({ loaderData }) => {
         return getHeadMeta({
-            title: loaderData?.title,
-            description: loaderData?.description,
+            canonicalUrl: loaderData?.pathname,
+            title: loaderData?.data.title,
+            description: loaderData?.data.description,
         });
     },
 });
@@ -69,7 +71,9 @@ const serverLoader = createServerFn({
 const clientLoader = browserCollections.docs.createClientLoader({
     component({ toc, frontmatter, default: MDX }) {
         const doc = frontmatter;
-        const { neighbours } = Route.useLoaderData();
+        const {
+            data: { neighbours },
+        } = Route.useLoaderData();
 
         return (
             <div
@@ -171,10 +175,10 @@ const clientLoader = browserCollections.docs.createClientLoader({
 });
 
 function Page() {
-    const data = useFumadocsLoader(Route.useLoaderData());
+    const data = useFumadocsLoader(Route.useLoaderData().data);
 
     return (
-        <div className="container-wrapper flex min-h-svh w-full flex-col [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] [--sidebar-min-width:12rem] [--sidebar-width:14rem]">
+        <div className="container-wrapper flex min-h-svh w-full flex-col [--footer-height:--spacing(14)] [--header-height:--spacing(14)] [--sidebar-min-width:12rem] [--sidebar-width:14rem]">
             <Topbar />
 
             <div className="flex gap-4 2xl:gap-5">

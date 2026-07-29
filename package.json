@@ -1,10 +1,10 @@
 {
-    "name": "pacekit-gsap",
+    "name": "gsap.paceui.com",
     "description": "Animated GSAP components crafted for smooth interaction and rich detail. Copy, customise, and create without the extra setup.",
     "version": "1.0.0",
     "private": true,
     "type": "module",
-    "repository": "https://github.com/pacekit/gsap",
+    "repository": "https://github.com/paceui/gsap",
     "author": {
         "name": "Denish Navadiya",
         "url": "https://x.com/withden_"
@@ -22,6 +22,7 @@
         "@fumadocs/base-ui": "^16.4.10",
         "@gsap/react": "^2.1.2",
         "@hello-pangea/dnd": "^18.0.1",
+        "@shikijs/transformers": "^4.3.1",
         "@tanstack/eslint-config": "^0.3.4",
         "@tanstack/react-form": "^1.28.0",
         "@tanstack/react-query": "^5.90.20",

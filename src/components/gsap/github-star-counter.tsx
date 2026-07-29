@@ -13,7 +13,7 @@ const fetchGitHubStars = async (repo: string): Promise<number> => {
 };
 
 export const GithubStarCounter = ({
-    repo = "pacekit/ui",
+    repo = "paceui/gsap",
     defaultStar = "000",
 }: {
     repo: string;

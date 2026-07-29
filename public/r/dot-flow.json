@@ -4,7 +4,7 @@
     "description": "Visually expressive status updates with animated dots and smooth sliding text transitions.",
     "type": "registry:ui",
     "dependencies": ["gsap", "@gsap/react"],
-    "registryDependencies": ["@pacekit-gsap/dot-loader"],
+    "registryDependencies": ["@paceui-gsap/dot-loader"],
     "files": [
         {
             "path": "components/gsap/dot-flow.tsx",

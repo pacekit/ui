@@ -24,7 +24,7 @@ export const Topbar = () => {
                 </div>
                 <Link to="/">
                     <Logo />
-                    <span className="sr-only">PaceKit</span>
+                    <span className="sr-only">PaceUI</span>
                 </Link>
                 <div className="ms-4">
                     <Button

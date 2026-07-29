@@ -23,7 +23,7 @@ export const registries: DataRegistry[] = [
         type: "registry:ui",
         demoPath: "demo/gsap/ai-modal-selector/default.tsx",
         dependencies: ["gsap", "@gsap/react"],
-        registryDependencies: ["@pacekit/swap", "button"],
+        registryDependencies: ["@paceui-gsap/swap", "button"],
         files: [
             {
                 path: "components/gsap/ai-modal-selector.tsx",
@@ -39,7 +39,7 @@ export const registries: DataRegistry[] = [
         type: "registry:ui",
         demoPath: "demo/gsap/ai-modal-ability-selector/default.tsx",
         dependencies: ["gsap", "@gsap/react"],
-        registryDependencies: ["@pacekit-gsap/swap", "button", "dropdown-menu", "tooltip"],
+        registryDependencies: ["@paceui-gsap/swap", "button", "dropdown-menu", "tooltip"],
         files: [
             {
                 path: "components/gsap/ai-modal-ability-selector.tsx",
@@ -288,7 +288,7 @@ export const registries: DataRegistry[] = [
         description: "Display live GitHub star count for any public repository",
         type: "registry:ui",
         demoPath: "demo/gsap/github-star-counter/default.tsx",
-        registryDependencies: ["@pacekit-gsap/rolling-number"],
+        registryDependencies: ["@paceui-gsap/rolling-number"],
         files: [
             {
                 path: "components/gsap/github-star-counter.tsx",
@@ -424,7 +424,7 @@ export const registries: DataRegistry[] = [
         type: "registry:ui",
         demoPath: "demo/gsap/dot-flow/default.tsx",
         dependencies: ["gsap", "@gsap/react"],
-        registryDependencies: ["@pacekit-gsap/dot-loader"],
+        registryDependencies: ["@paceui-gsap/dot-loader"],
 
         files: [
             {

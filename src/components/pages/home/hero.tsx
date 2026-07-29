@@ -18,10 +18,11 @@ export const Hero = () => {
         <div className="relative mt-4 flex justify-center md:pt-8 lg:pt-16 xl:pt-16 2xl:pt-20">
             <div className="flex max-w-3xl flex-col items-center text-center">
                 <a
-                    href={Links.external.ui}
+                    href="https://paceui.com"
+                    target="_blank"
                     className="flex items-center gap-2 rounded-full border py-1 ps-2.5 pe-3 text-sm hover:shadow">
                     <BlocksIcon className="text-primary size-4" />
-                    <p className="font-medium">Building Blocks</p>
+                    <p className="font-medium">Shadcn Ecosystem</p>
                 </a>
                 <h1 className="mt-6 text-2xl leading-[1.15] font-[580] tracking-tight sm:text-4xl md:text-5xl 2xl:text-6xl">
                     <p>
@@ -54,7 +55,7 @@ export const Hero = () => {
                                 <ChevronRightIcon />
                             </Link>
                         }
-                        className="shadow-primary/20 h-11 gap-2.5 px-6 shadow-xl"></Button>
+                        className="h-11 gap-2.5 px-6"></Button>
                     <Button
                         size="lg"
                         variant="ghost"
@@ -77,7 +78,7 @@ export const Hero = () => {
                         Pop & Press
                     </SpringButton>
                     <hr className="h-6 border-s border-dashed" />
-                    <GithubStarCounter repo="pacekit/gsap" defaultStar="000" />
+                    <GithubStarCounter repo="paceui/gsap" defaultStar="000" />
                 </div>
                 <hr className="border-t border-dashed px-24" />
                 <ProductDemo />
@@ -109,7 +110,7 @@ export const Hero = () => {
                                 }></Button>
                         </div>
                     </TiltCard>
-                    <div className="absolute -end-18 top-8">
+                    <div className="absolute -inset-e-18 top-8">
                         <svg className="fill-foreground/50 h-16 -rotate-30" viewBox="0 0 511 464">
                             <path d="M483.438 197.118C487.34 228.965 466.778 259.114 443.695 278.934C418.138 300.978 386.514 314.879 353.207 320.38C285.833 331.851 218.728 310.303 158.478 281.734C120.963 263.965 85.3952 242.55 51.5793 218.308C48.4395 216.049 48.7277 210.28 51.0453 207.802C53.9668 204.604 58.4111 205.01 61.5509 207.269C90.2183 227.694 120.287 245.858 151.758 261.76C180.558 276.162 210.155 289.025 241.134 297.89C301.394 314.57 368.951 314.17 421.883 277C446.78 259.557 472.351 230.165 468.234 197.402C467.881 193.426 471.718 190.013 475.441 189.815C480.236 189.655 483.084 193.142 483.438 197.118Z" />
                             <path d="M66.8645 331.562C60.385 293.266 53.9054 254.97 47.4259 216.674C46.0557 208.781 42.8711 198.511 50.5076 192.756C54.2478 189.751 59.0426 189.592 63.8964 190.095C68.7501 190.598 73.3506 191.258 78.3604 192.014C97.6783 194.437 116.899 197.268 136.217 199.691C157.991 202.696 179.609 205.448 201.383 208.454C205.321 209.172 207.722 213.634 206.847 217.318C205.876 221.412 201.921 223.501 197.983 222.782C162.563 218.052 127.144 213.322 92.1336 208.689C83.0887 207.623 74.141 206.149 65.0962 205.083C64.0241 205.045 61.3735 205.281 60.2425 204.58C59.2676 204.132 60.1453 204.989 60.3397 204.171C60.6104 201.208 61.0995 203.702 61.0995 203.702C61.2556 203.955 61.6093 207.931 61.7654 208.185C62.2545 210.679 62.5875 212.921 63.0766 215.415C66.091 232.78 68.852 250.301 72.0225 267.919C75.5259 287.778 78.776 307.794 82.2795 327.653C83.0426 331.726 81.2522 335.626 77.0819 336.798C72.5993 337.464 67.4715 335.382 66.8645 331.562Z" />

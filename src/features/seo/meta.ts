@@ -4,7 +4,10 @@ export interface HeadMetaProps {
     title?: string;
     description?: string;
     image?: string;
+    path?: string;
+    noindex?: boolean;
     links?: any[];
+    canonicalUrl?: string;
 }
 
 const getAbsolutePath = (path: string) => {
@@ -14,8 +17,15 @@ const getAbsolutePath = (path: string) => {
 };
 
 export const getHeadMeta = (props: HeadMetaProps = {}) => {
-    const url = seoConfig.url;
-    const title = props.title ? `${props.title} | ${seoConfig.defaultTitle}` : seoConfig.title;
+    const baseUrl = seoConfig.url;
+    const canonicalUrl =
+        props.canonicalUrl !== undefined
+            ? props.canonicalUrl.startsWith("http")
+                ? props.canonicalUrl
+                : `${baseUrl}${props.canonicalUrl}`
+            : undefined;
+    const currentUrl = props.path ? `${baseUrl}${props.path.startsWith("/") ? props.path : `/${props.path}`}` : baseUrl;
+    const title = props.title ?? seoConfig.title;
     const description = props.description ?? seoConfig.description;
     const image = getAbsolutePath(props.image ?? seoConfig.image);
     const siteName = seoConfig.siteName;
@@ -36,6 +46,10 @@ export const getHeadMeta = (props: HeadMetaProps = {}) => {
                 name: "viewport",
                 content: "width=device-width, initial-scale=1",
             },
+            {
+                name: "robots",
+                content: props.noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large",
+            },
             { title },
             { name: "description", content: description },
             { name: "keywords", content: keywords.join(", ") },
@@ -52,7 +66,7 @@ export const getHeadMeta = (props: HeadMetaProps = {}) => {
             { property: "og:description", content: description },
             { property: "og:image", content: image },
             { property: "og:image:alt", content: title },
-            { property: "og:url", content: url },
+            { property: "og:url", content: currentUrl },
             { property: "og:site_name", content: siteName },
             // Twitter
             { name: "twitter:card", content: "summary_large_image" },
@@ -77,7 +91,8 @@ export const getHeadMeta = (props: HeadMetaProps = {}) => {
         ],
         links: [
             { rel: "author", href: seoConfig.authorUrl },
-            { rel: "canonical", href: url },
+            ...[canonicalUrl ? { rel: "canonical", href: canonicalUrl ?? currentUrl } : {}],
+            { rel: "manifest", href: "/manifest.webmanifest" },
             { rel: "icon", href: faviconIco, sizes: "any" },
             { rel: "icon", type: "image/png", sizes: "32x32", href: favicon32 },
             { rel: "icon", type: "image/png", sizes: "48x48", href: favicon48 },

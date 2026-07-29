@@ -15,16 +15,19 @@ import { Toaster } from "@/components/ui/sonner";
 import appCss from "@/styles/globals.css?url";
 
 export const Route = createRootRoute({
-    head: () => ({
-        ...getHeadMeta({
-            links: [
-                {
-                    rel: "stylesheet",
-                    href: appCss,
-                },
-            ],
-        }),
-    }),
+    head: () => {
+        return {
+            ...getHeadMeta({
+                canonicalUrl: "",
+                links: [
+                    {
+                        rel: "stylesheet",
+                        href: appCss,
+                    },
+                ],
+            }),
+        };
+    },
     shellComponent: RootDocument,
 });
 
@@ -36,7 +39,7 @@ export const Providers = ({ children }: { children: ReactNode }) => {
             <RootProvider>
                 <Toaster />
                 <QueryClientProvider client={queryClient}>
-                    <div className="[--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] [--sidebar-min-width:12rem] [--sidebar-width:14rem]">
+                    <div className="[--footer-height:--spacing(14)] [--header-height:--spacing(14)] [--sidebar-min-width:12rem] [--sidebar-width:14rem]">
                         {children}
                     </div>
                 </QueryClientProvider>

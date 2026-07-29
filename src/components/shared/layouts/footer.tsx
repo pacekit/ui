@@ -28,7 +28,7 @@ export const Footer = ({ className, ...props }: ComponentProps<"div">) => {
                     className="hover:text-primary font-medium hover:underline"
                     href={Links.external.organization}
                     target="_blank">
-                    PaceKit
+                    PaceUI
                 </a>
             </p>
             <div className="flex items-center gap-0.5">

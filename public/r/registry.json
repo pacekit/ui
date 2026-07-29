@@ -1,7 +1,7 @@
 {
     "$schema": "https://ui.shadcn.com/schema/registry.json",
-    "name": "PaceKit GSAP",
-    "homepage": "https://gsap.pacekit.dev",
+    "name": "PaceUI GSAP",
+    "homepage": "https://gsap.paceui.com",
     "items": [
         {
             "name": "index",
@@ -31,7 +31,7 @@
             "description": "AI-focused model selector with preview, tooltips, and capability indicators built-in",
             "type": "registry:ui",
             "dependencies": ["gsap", "@gsap/react"],
-            "registryDependencies": ["@pacekit/swap", "button"],
+            "registryDependencies": ["@paceui-gsap/swap", "button"],
             "files": [
                 {
                     "path": "components/gsap/ai-modal-selector.tsx",
@@ -46,7 +46,7 @@
             "description": "Compact selector for toggling abilities with icons and custom styles",
             "type": "registry:ui",
             "dependencies": ["gsap", "@gsap/react"],
-            "registryDependencies": ["@pacekit-gsap/swap", "button", "dropdown-menu", "tooltip"],
+            "registryDependencies": ["@paceui-gsap/swap", "button", "dropdown-menu", "tooltip"],
             "files": [
                 {
                     "path": "components/gsap/ai-modal-ability-selector.tsx",
@@ -267,7 +267,7 @@
             "title": "GitHub Star Counter",
             "description": "Display live GitHub star count for any public repository",
             "type": "registry:ui",
-            "registryDependencies": ["@pacekit-gsap/rolling-number"],
+            "registryDependencies": ["@paceui-gsap/rolling-number"],
             "files": [
                 {
                     "path": "components/gsap/github-star-counter.tsx",
@@ -393,7 +393,7 @@
             "description": "Visually expressive status updates with animated dots and smooth sliding text transitions.",
             "type": "registry:ui",
             "dependencies": ["gsap", "@gsap/react"],
-            "registryDependencies": ["@pacekit-gsap/dot-loader"],
+            "registryDependencies": ["@paceui-gsap/dot-loader"],
             "files": [
                 {
                     "path": "components/gsap/dot-flow.tsx",

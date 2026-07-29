@@ -4,7 +4,7 @@
     "description": "Compact selector for toggling abilities with icons and custom styles",
     "type": "registry:ui",
     "dependencies": ["gsap", "@gsap/react"],
-    "registryDependencies": ["@pacekit-gsap/swap", "button", "dropdown-menu", "tooltip"],
+    "registryDependencies": ["@paceui-gsap/swap", "button", "dropdown-menu", "tooltip"],
     "files": [
         {
             "path": "components/gsap/ai-modal-ability-selector.tsx",

@@ -12,8 +12,8 @@ import { Textarea } from "@/components/ui/textarea";
 const suggestions = [
     "Why does shadcn win every time? 🤔",
     "Which shadcn CLI command starts a project?",
-    "What is PaceKit used for exactly?",
-    "How to add PaceKit components in React?",
+    "What is PaceUI used for exactly?",
+    "How to add PaceUI components in React?",
     "Top AI trends shaping the future",
     "Why TypeScript powers scalable applications",
     "How self-learning systems actually work",

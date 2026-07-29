@@ -11,8 +11,8 @@ const SOURCE_PATH = path.join(process.cwd(), "/src/");
 const buildMCP = async (registries: RegistryItem[]) => {
     const mcp = {
         $schema: "https://ui.shadcn.com/schema/registry.json",
-        name: "PaceKit GSAP",
-        homepage: "https://gsap.pacekit.dev",
+        name: "PaceUI GSAP",
+        homepage: "https://gsap.paceui.com",
         items: [
             {
                 name: "index",

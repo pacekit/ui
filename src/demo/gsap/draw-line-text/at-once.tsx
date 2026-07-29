@@ -7,7 +7,7 @@ export const Demo = () => {
             oneByOne={false}
             fontSize={60}
             strokeWidth={1.5}
-            text="PaceKit"
+            text="PaceUI"
             color="var(--color-foreground)"
         />
     );

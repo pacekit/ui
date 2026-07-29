@@ -1,10 +1,10 @@
 export const Links = {
     external: {
-        organization: "https://pacekit.dev",
-        github: "https://github.com/pacekit/gsap",
-        discord: "https://pacekit.dev/discord",
-        twitter: "https://x.com/pacekit_",
+        organization: "https://paceui.com",
+        github: "https://github.com/paceui/gsap",
+        discord: "https://paceui.com/discord",
+        twitter: "https://x.com/paceui_",
         twitterPersonal: "https://x.com/withden_",
-        ui: "https://ui.pacekit.dev",
+        ui: "https://ui.paceui.com",
     },
 };

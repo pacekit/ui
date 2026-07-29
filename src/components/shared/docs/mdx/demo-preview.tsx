@@ -62,7 +62,7 @@ export const DemoPreview = ({ name, ...props }: Props) => {
         return {
             demoPath: generatedContent?.demoPath,
             filePaths: generatedContent?.files?.map((file) => file.path) ?? [],
-            installationCommand: `npx shadcn@latest add @pacekit/${generatedContent.name}`,
+            installationCommand: `npx shadcn@latest add @paceui-gsap/${generatedContent.name}`,
         };
     }, [name]);
 
