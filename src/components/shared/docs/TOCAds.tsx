@@ -1,10 +1,7 @@
 export const TOCAds = () => {
     return (
-        <a
-            href="https://paceui.com/"
-            target="_blank"
-            className="group relative block rounded-md border">
-            <div className="bg-muted/40 py-2 px-3">
+        <a href="https://paceui.com/" target="_blank" className="group relative block rounded-md border">
+            <div className="bg-muted/40 px-3 py-2">
                 <p className="font-medium">PaceUI</p>
                 <p className="text-muted-foreground mt-1 text-sm leading-tight">
                     Shadcn Components, Blocks, Templates, Starters & much more
