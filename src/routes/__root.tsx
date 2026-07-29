@@ -18,7 +18,6 @@ export const Route = createRootRoute({
     head: () => {
         return {
             ...getHeadMeta({
-                canonicalUrl: "",
                 links: [
                     {
                         rel: "stylesheet",

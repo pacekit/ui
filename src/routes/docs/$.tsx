@@ -24,7 +24,6 @@ export const Route = createFileRoute("/docs/$")({
         const slugs = params._splat?.split("/") ?? [];
         const data = await serverLoader({ data: slugs });
         await clientLoader.preload(data.path);
-        console.info(slugs, "slugs");
         return { data, pathname: location.pathname };
     },
     head: ({ loaderData }) => {

@@ -91,7 +91,7 @@ export const getHeadMeta = (props: HeadMetaProps = {}) => {
         ],
         links: [
             { rel: "author", href: seoConfig.authorUrl },
-            ...[canonicalUrl ? { rel: "canonical", href: canonicalUrl ?? currentUrl } : {}],
+            ...[canonicalUrl ? { key: "canonical", rel: "canonical", href: canonicalUrl ?? currentUrl } : {}],
             { rel: "manifest", href: "/manifest.webmanifest" },
             { rel: "icon", href: faviconIco, sizes: "any" },
             { rel: "icon", type: "image/png", sizes: "32x32", href: favicon32 },

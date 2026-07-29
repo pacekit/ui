@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { getHeadMeta } from "@/features/seo/meta";
+
 import { Demo } from "@/components/pages/home/demo";
 import { Feature } from "@/components/pages/home/feature";
 import { Hero } from "@/components/pages/home/hero";
@@ -8,6 +10,13 @@ import { Topbar } from "@/components/shared/layouts/topbar";
 
 export const Route = createFileRoute("/")({
     component: RouteComponent,
+    head: () => {
+        return {
+            ...getHeadMeta({
+                canonicalUrl: "",
+            }),
+        };
+    },
 });
 
 function RouteComponent() {
